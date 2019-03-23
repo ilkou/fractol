@@ -6,7 +6,7 @@
 /*   By: oouklich <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 20:02:31 by oouklich          #+#    #+#             */
-/*   Updated: 2019/03/22 21:35:31 by oouklich         ###   ########.fr       */
+/*   Updated: 2019/03/23 11:27:28 by oouklich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	ft_creat_image(t_ptr *p)
 void	ft_init_switch(t_ptr **p)
 {
 	(*p)->zoom = 1.0;
+	(*p)->max_iter = 40.0;
 	(*p)->x1_max = (WIN - WIN / 2.0) * 4.0 / WIN;
 	(*p)->x2_max = (WIN - WIN / 2.0) * 4.0 / WIN;
 	(*p)->x1_min = (0 - WIN / 2.0) * 4.0 / WIN;
@@ -61,5 +62,4 @@ void	ft_init(t_ptr **p, char **argv)
 	(*p)->julia_type = 0;
 	(*p)->tricorne_type = -2;
 	(*p)->mandelbrot_type = 2;
-	(*p)->max_iter = 40.0;
 }

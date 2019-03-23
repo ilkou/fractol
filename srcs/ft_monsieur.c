@@ -6,7 +6,7 @@
 /*   By: oouklich <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 19:00:29 by oouklich          #+#    #+#             */
-/*   Updated: 2019/03/22 19:02:38 by oouklich         ###   ########.fr       */
+/*   Updated: 2019/03/23 11:25:04 by oouklich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ double	ft_monsieur(t_ptr *p, double col, double row)
 	set_coordinate(&c, p, col, row);
 	while (z.re * z.re + z.im * z.im <= 4 && iteration < p->max_iter)
 	{
-		z.re = z.re > 0 ? z.re : -z.re;
+		B_ABS(z.re);
 		ft_power_complex(&z, &c, -3);
 		iteration += 1;
 	}
