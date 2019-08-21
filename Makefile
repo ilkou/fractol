@@ -11,19 +11,36 @@
 # **************************************************************************** #
 
 NAME = fractol
-SRCS = ./srcs/*.c
-INCLUDES = ./minilibx_macos
+SRCS = disp.c ft_calcul.c ft_events.c ft_julia.c ft_monsieur.c ft_tricorne.c
+SRCS += ft_burningship.c ft_draw.c ft_init.c ft_mandelbrot.c ft_negatibrot.c main.c
+
+SRC = $(SRCS:%=./srcs/%)
+OBJ = $(SRCS:.c=.o)
+
+ifeq ($(shell uname), Darwin)
+$(info MacOs detected)
+MLX = -lmlx -framework OpenGL -framework AppKit
+else
+$(info $(shell uname) detected)
+MLX = -lm -lmlx -lXext -lX11
+endif
+
 FLAGS = -Wall -Wextra -Werror
-MLX = ./minilibx -lmlx -framework OpenGL -framework AppKit
 LIBFT = ./libft/ -lft
-THREAD = . -lpthread
+THREAD = -lpthread
+MYLIBS = $(MLX) -L $(LIBFT) $(THREAD)
+
 all: $(NAME)
 
-$(NAME):
+$(NAME): $(OBJ)
 	@make -C libft
-	@gcc $(FLAGS) -o $(NAME) $(SRCS) -I $(INCLUDES) -L $(MLX) -L $(LIBFT) -L $(THREAD)
+	@gcc $(FLAGS) -o $(NAME) $^ $(MYLIBS)
+
+%.o: ./srcs/%.c
+	gcc $(FLAGS) -o $@ -c $<
 
 clean:
+	@rm -f $(OBJ)
 	@make clean -C libft
 
 fclean: clean
