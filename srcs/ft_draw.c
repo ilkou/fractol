@@ -25,7 +25,7 @@ static	t_color	ft_color(t_ptr *p, double iteration)
 {
 	if (p->color == 0)
 		return (ft_create_color(0x0FF00F / iteration,
-					0x0F00F0 / iteration));
+					0x0FF0F0 / iteration));
 	else if (p->color == 1)
 		return (ft_create_color(0x2D86FF / iteration, 0));
 	else if (p->color == 2)
