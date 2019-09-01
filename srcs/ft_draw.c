@@ -24,22 +24,22 @@ static	t_color	ft_create_color(int x, int y)
 static	t_color	ft_color(t_ptr *p, double iteration)
 {
 	if (p->color == 0)
-		return (ft_create_color(0x0FF00F * iteration / 2.003,
-					0x0F00F0 * iteration / 2.003));
+		return (ft_create_color(0x0FF00F / iteration,
+					0x0F00F0 / iteration));
 	else if (p->color == 1)
-		return (ft_create_color(0x2D86FF * iteration / 2.003, 0));
+		return (ft_create_color(0x2D86FF / iteration, 0));
 	else if (p->color == 2)
-		return (ft_create_color(0xDF00FF * iteration / 2.003, 0));
+		return (ft_create_color(0xDF00FF / iteration, 0));
 	else if (p->color == 3)
-		return (ft_create_color(0x2B8BE6 * iteration / 2.003, 0));
+		return (ft_create_color(0x2B8BE6 / iteration, 0));
 	else if (p->color == 4)
-		return (ft_create_color(0xCC6D74 * iteration / 2.003, 0));
+		return (ft_create_color(0xCC6D74 / iteration, 0));
 	else if (p->color == 5)
-		return (ft_create_color(0x74CC6D * iteration / 2.003, 0));
+		return (ft_create_color(0x74CC6D / iteration, 0));
 	else if (p->color == 6)
-		return (ft_create_color(0x40A9F9 * iteration / 2.003, 0));
+		return (ft_create_color(0x40A9F9 / iteration, 0));
 	else
-		return (ft_create_color(0x4DF940 * iteration / 2.003, 0));
+		return (ft_create_color(0x4DF940 / iteration, 0));
 }
 
 void			*ft_calcul(t_thread *p)
