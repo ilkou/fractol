@@ -19,7 +19,7 @@ OBJ = $(SRCS:.c=.o)
 
 ifeq ($(shell uname), Darwin)
 $(info MacOs detected)
-MLX = -lmlx -framework OpenGL -framework AppKit
+MLX = -L ./minilibx_macos -lmlx -framework OpenGL -framework AppKit
 else
 $(info $(shell uname) detected)
 MLX = -lm -lmlx -lXext -lX11
@@ -37,7 +37,7 @@ $(NAME): $(OBJ)
 	@gcc $(FLAGS) -o $(NAME) $^ $(MYLIBS)
 
 %.o: ./srcs/%.c
-	gcc $(FLAGS) -o $@ -c $<
+	gcc $(FLAGS) -I ./minilibx_macos -o $@ -c $<
 
 clean:
 	@rm -f $(OBJ)

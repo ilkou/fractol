@@ -12,6 +12,18 @@
 
 #include "../headers/fractol.h"
 
+int	ft_close(t_ptr *p)
+{
+	mlx_destroy_image(p->mlx, p->img);
+	mlx_destroy_window(p->mlx, p->win);
+	free(p->bpp);
+	free(p->size);
+	free(p->endian);
+	free(p);
+	exit(0);
+	return (0);
+}
+
 void	choose_fractale(char **argv, t_ptr *p)
 {
 	if (!ft_strcmp(argv[1], "julia"))
@@ -50,6 +62,7 @@ int		main(int argc, char **argv)
 	ft_creat_image(p);
 	ft_draw(p);
 	disp_help();
+	mlx_hook(p->win, 17, 0, ft_close, p);
 	mlx_hook(p->win, 2, 0, ft_deal_key, p);
 	mlx_hook(p->win, 4, 0, ft_mouse_press, p);
 	mlx_hook(p->win, 6, 0, ft_mouse_move, p);

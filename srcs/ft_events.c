@@ -68,12 +68,7 @@ void		ft_move(int key, t_ptr *p)
 int			ft_deal_key(int key, t_ptr *p)
 {
 	if (key == MLX_KEY_PAD_ESC)
-	{
-		mlx_destroy_image(p->mlx, p->img);
-		mlx_destroy_window(p->mlx, p->win);
-		free(p);
-		exit(0);
-	}
+		ft_close(p);
 	if (key == MLX_KEY_PAD_S)
 		p->stop = p->stop == 1 ? 0 : 1;
 	if (key == MLX_KEY_PAD_PLUS)

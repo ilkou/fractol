@@ -15,6 +15,7 @@
 
 # include "fractol_struct.h"
 
+int		ft_close(t_ptr *p);
 double		ft_julia(t_ptr *p, double col, double row);
 double		ft_mandelbrot(t_ptr *p, double col, double row);
 double		ft_tricorne(t_ptr *p, double col, double row);
